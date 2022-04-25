@@ -1,12 +1,11 @@
-#!/bin/bash
+#!/usr/bin/sh
 
-killall -q polybar
+dir="$HOME/.config/polybar"
 
-while pgrep -u $UID -x polybar >/dev/null;do sleep 1;done
+launch_bar() {
+  killall polybar
+  while pgrep polybar; do killall polybar; done
+  polybar -q main -c "$dir/config.ini"
+}
 
-# Launch bar
-polybar top &
-
-if [[ $(xrandr -q | grep 'HDMI-2 connected') ]]; then
-	polybar external &
-fi
+launch_bar
