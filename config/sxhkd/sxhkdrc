@@ -27,7 +27,7 @@ super + d
 # Applications
 
 # Launch Apps
-super + shift + {b,n}
+super + {w,n}
 	{firefox,geany}
 
 
