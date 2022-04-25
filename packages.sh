@@ -1,0 +1,3 @@
+#!/bin/sh
+
+yay -S --noconfirm timeshift mssql-server msodbcsql mssql-tools  gnome-keyring libsecret libgnome-keyring dotnet-sdk-5.0-bin dotnet-runtime-5.0-bin xdman neovim discord vlc wps-office visual-studio-code-bin postman-bin  bspwm-git sxhkd-git polybar-git rofi zsh kitty picom-ibhagwan-git dunst gtk3 gtk-engine-murrine gnome-themes-extra alsa alsa-utils feh volumectl brightnessctl bluetoothctl i3lock-color ksuperkey sddm rofi-bluetooth-git yad networkmanager-dmenu-git cava nerd-fonts-jetbrains-mono ttf-jetbrains-mono ttf-iosevka ttf-iosevka-nerd xclip pulseaudio pulseaudio-alsa pulseaudio-bluetooth xbrightness xcolor mpd ncmpcpp mpc zathura polkit-gnome xfce4-power-manager viewnior maim

@@ -35,7 +35,7 @@ dir="$HOME/.config $HOME/.dotfiles $HOME/Pictures/Wallpapers $HOME/.local/bin $H
 
 # Variables
 dots="$HOME/.dotfiles"
-cat="$HOME/.dotfiles/Cat-Dots"
+esta="$HOME/.dotfiles/esta-dotfiles"
 config="$HOME/.config"
 bin="$HOME/.local/bin"
 
@@ -49,7 +49,7 @@ esac
 # Install
 case $install in
     Y*|y*)
-    for a in $dir; do 
+    for a in $dir; do .do
         mkdir -p $a # Makes the directories
     done
 
@@ -89,16 +89,18 @@ case $arch in
             git clone https://aur.archlinux.org/yay.git
             cd yay
             makepkg -si
-            yay -S --noconfirm bspwm-git sxhkd-git polybar-git rofi zsh kitty picom-ibhagwan-git dunst gtk3 gtk-engine-murrine gnome-themes-extra alsa alsa-utils feh volumectl brightnessctl bluetoothctl i3lock-color ksuperkey sddm rofi-bluetooth-git yad networkmanager-dmenu-git cava nerd-fonts-jetbrains-mono ttf-jetbrains-mono ttf-iosevka ttf-iosevka-nerd xclip pulseaudio pulseaudio-alsa pulseaudio-bluetooth xbrightness xcolor mpd ncmpcpp mpc zathura polkit-gnome xfce4-power-manager viewnior maim
         esac
 esac
+
 
 # Copying Files
     clear
     printf "${cb}[*] Getting dotfiles\n" && sleep 2
     cd $dots && git clone https://github.com/hakanozkum20/esta-dotfiles.git # Clone the main branch
-    cd $cat
+    cd $esta
     printf "${cr}[*] Making backups\n" && sleep 5
+    chmod +x packages.sh
+    ./packages.sh
 # Copying the old configs to backup folder
     cp -rf $config/bspwm/ $config/backups
     cp -rf $config/sxhkd/ $config/backups
@@ -110,6 +112,7 @@ esac
     cp -rf $config/zathura/ $config/backups
     cp -rf $config/cava/ $config/backups
     cp -rf $config/picom.conf $config/backups
+    cp -rf $config/xfce4/ $config/backups
     cp -rf $HOME/.Xresources $config/backups
     cp -rf $HOME/.zshrc $config/backups
     cp -rf $HOME/.ncmpcpp/ $config/backups
@@ -117,6 +120,9 @@ esac
     cp -rf $HOME/.vimrc $config/backups
     cp -rf $HOME/.startpage/ $config/backups
     cp -rf $bin $config/backups
+    cp -rf $HOME/.xinitrc $config/backups
+    cp -rf $HOME/.fehbg $config/backups
+
 # Removing old configs
     rm -rf $config/bspwm/
     rm -rf $config/sxhkd/
@@ -128,24 +134,27 @@ esac
     rm -rf $config/zathura/
     rm -rf $config/cava/
     rm -rf $config/picom.conf
+    rm -rf $config/xfce4/
     rm -rf $HOME/.Xresources
     rm -rf $HOME/.zshrc
     rm -rf $HOME/.ncmpcpp/
     rm -rf $HOME/.mpd/
     rm -rf $HOME/.vimrc
     rm -rf $HOME/.startpage/
+    rm -rf $HOME/.xinitrc    
     rm -rf $bin/*
+    
 # Setup
     printf "${cr}[*] Deleting old configs\n" && sleep 2
     printf "${cg}[*] Copying dotfiles\n" && sleep 3
-    cp -rf $cat/config/* $config/
+    cp -rf $esta/config/* $config/
     printf "${cb}[*] Copying configs\n" && sleep 4
-    cp -rf $cat/home/.[^.]* $HOME/
+    cp -rf $esta/home/.[^.]* $HOME/
     xrdb ~/.Xresources
     printf "${cg}[*] Configs copied\n" && sleep 2
     printf "${cb}[*] Copying scripts\n" && sleep 3
-    cp -rf $cat/local/bin/* $bin/
-    sudo cp $cat/local/bin/rofi-bluetooth /usr/bin/
+    cp -rf $esta/local/bin/* $bin/
+    sudo cp $esta/local/bin/rofi-bluetooth /usr/bin/
     printf "${cg}[*] Scripts copied\n" && sleep 2
     printf "${cr}[*] Making them excutables\n" && sleep 2
     chmod +x $bin/*
@@ -153,10 +162,10 @@ esac
     chmod +x $config/rofi/bin/*
     chmod +x $config/polybar/launch.sh
     printf "${cb}[*] Copying wallpapers\n" && sleep 3
-    cp -rf $cat/home/Pictures/Wallpapers/* $HOME/Pictures/Wallpapers
+    cp -rf $esta/home/Pictures/Wallpapers/* $HOME/Pictures/Wallpapers
     printf "${cg}[*] Wallpapers copied\n" && sleep 2
     printf "${cb}[*] Copying fonts\n" && sleep 3
-    cp -rf $cat/fonts/* $HOME/.fonts
+    cp -rf $esta/fonts/* $HOME/.fonts
     fc-cache -fv
     printf "${cg}[*] Fonts copied\n" && sleep 2
     printf "${cg}[*] Dotfiles installed\n" && sleep 2
@@ -166,8 +175,8 @@ esac
     printf "${cr}[*] Please Reboot your system!!\n"
     echo " "
     printf "${cb}[|] If the installer has problem installing or missing feature please summit a pull requise or issue on the Github Page\n" # This is a message
-    printf "${cb}[|] For extra information like spotify setup or firefox setup please go to this Cat-Dot's Github Wiki Page\n"
-    printf "${cb}[|] Please go to the Cat-Dot's Github Wiki Page for Manual Installation and fixes\n"
+    printf "${cb}[|] For extra information like spotify setup or firefox setup please go to this esta-Dot's Github Wiki Page\n"
+    printf "${cb}[|] Please go to the esta-Dot's Github Wiki Page for Manual Installation and fixes\n"
     echo " "
     printf "${cr}[-] Exiting!\n"
 esac

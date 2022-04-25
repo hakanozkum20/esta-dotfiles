@@ -7,7 +7,7 @@ super + Return
 	kitty
 
 # Rofi App Launcher
-alt + @space
+super + @space
 	sh $HOME/.config/rofi/bin/launcher
 
 # Rofi Network Menu
@@ -33,7 +33,7 @@ super + shift + {b,n}
 
 # Terminal Apps
 ctrl + alt + {v,n,r,h}
-	kitty -e {vim,nvim,ranger,btop}
+	kitty -e {vim,nvim,ranger,htop}
 
 # Lockscreen
 ctrl + alt + l
@@ -99,7 +99,7 @@ super + alt + {q,r}
 	bspc {quit,wm -r}
 	
 # Split horizontal, vertical or cancel
-super + {h,v,q}
+super + {h,v,c}
 	bspc node -p {east,south,cancel}
 
 # Fullscreen or Monocle
@@ -143,7 +143,7 @@ super + control + {Left,Right,Up,Down}
 	bspc node -z {left -20 0,right 20 0,top 0 -20,bottom 0 20}
 	
 # Shrinking windows
-super + alt + {Left,Right,Up,Down}
+super + alt + {Right,Left,Down,Up}
 	bspc node -z {left 20 0,right -20 0,top 0 20,bottom 0 -20}
 	
 # Move floating windows

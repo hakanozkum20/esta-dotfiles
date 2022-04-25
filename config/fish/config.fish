@@ -1,4 +1,5 @@
 complete -f -c dotnet -a "(dotnet complete)"
+fish_add_path $HOME/dotnet
 
 # Dracula Color Palette
 set -l foreground f8f8f2
